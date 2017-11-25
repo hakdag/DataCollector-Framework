@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package >
+	<metadata>
+		<id>foxsoftware.frameworks.datacollector</id>
+		<authors>Hakan Akdag</authors>
+		<owners>Hakan Akdag</owners>
+		<version>0.1</version>
+		<title>DataCollector Framework</title>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<description>Framework for parsing web pages.</description>
+		<releaseNotes>First release</releaseNotes>
+		<copyright>Copyright 2016</copyright>
+		<tags>parse html web content</tags>
+	</metadata>
+  
+	<files>
+		<file src="*.dll" target="lib\net461" />
+	</files>
+</package>
