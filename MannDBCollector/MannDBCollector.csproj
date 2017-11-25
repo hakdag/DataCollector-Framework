@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1A6429C4-9553-44C3-86DC-35419231BD4A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MannDBCollector</RootNamespace>
+    <AssemblyName>MannDBCollector</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Build\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\Library\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Parsers\FilterNodeParser.cs" />
+    <Compile Include="Parsers\FilterPageParser.cs" />
+    <Compile Include="Parsers\ModelDetailParser.cs" />
+    <Compile Include="Requestors\FilterPageDocumentRequestor.cs" />
+    <Compile Include="Requestors\ModelDetailDocumentRequestor.cs" />
+    <Compile Include="Requestors\ModelDocumentRequestor.cs" />
+    <Compile Include="Requestors\ModelPageDocumentRequestor.cs" />
+    <Compile Include="Parsers\ModelPageParser.cs" />
+    <Compile Include="Parsers\ModelParser.cs" />
+    <Compile Include="Requestors\VehicleTypeDocumentRequestor.cs" />
+    <Compile Include="Parsers\VehicleTypeParser.cs" />
+    <Compile Include="Requestors\InitialPageDocumentRequestor.cs" />
+    <Compile Include="MannDBExecutionPlan.cs" />
+    <Compile Include="Parsers\MannDBHtmlParser.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Parsers\InitialPageParser.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataCollector.Common.Contracts\DataCollector.Common.Contracts.csproj">
+      <Project>{6a9c8cea-c6ca-4477-a6ee-885b9e6c2468}</Project>
+      <Name>DataCollector.Common.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataCollector.Common\DataCollector.Common.csproj">
+      <Project>{a37215e6-aee2-4df6-9c1c-fff396f1d106}</Project>
+      <Name>DataCollector.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataCollector.IO\DataCollector.IO.csproj">
+      <Project>{354D129A-9913-4FC4-A55D-112CA257CF43}</Project>
+      <Name>DataCollector.IO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataCollector.Parsing\DataCollector.Parsing.csproj">
+      <Project>{9BEEB544-F3B0-487A-942F-0EABF27255FF}</Project>
+      <Name>DataCollector.Parsing</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataCollector.Planning\DataCollector.Planning.csproj">
+      <Project>{36652415-B3E9-448E-8E59-213D0F486DBC}</Project>
+      <Name>DataCollector.Planning</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataCollector.WebRequest\DataCollector.WebRequest.csproj">
+      <Project>{b70dc9aa-55be-40b6-8b8c-58a52018be03}</Project>
+      <Name>DataCollector.WebRequest</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MannDBCollector.Common.Contracts\MannDBCollector.Common.Contracts.csproj">
+      <Project>{4fbde52f-09c6-4adb-ab3a-d5dc94693f04}</Project>
+      <Name>MannDBCollector.Common.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MannDBCollector.Common\MannDBCollector.Common.csproj">
+      <Project>{2384A37A-FAD9-4454-AFDF-00ABD5546E56}</Project>
+      <Name>MannDBCollector.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
