@@ -7,7 +7,7 @@ using System.Net;
 
 namespace DataCollector.WebRequest.Get
 {
-    public class DocumentRequester : IDocumentRequestor
+    public class DocumentRequestor : IDocumentRequestor
     {
         public RequestStates State { get; set; } = RequestStates.Ready;
         public string FailMessage { get; set; }
@@ -18,14 +18,14 @@ namespace DataCollector.WebRequest.Get
         private readonly Cookie sessionCookie;
 
         #region Constructors
-        public DocumentRequester(IWebRequestor webRequestor, string url)
+        public DocumentRequestor(IWebRequestor webRequestor, string url)
         {
             this.webRequestor = webRequestor;
             this.url = url;
             validate();
         }
 
-        public DocumentRequester(IWebRequestor webRequestor, string url, Cookie sessionCookie)
+        public DocumentRequestor(IWebRequestor webRequestor, string url, Cookie sessionCookie)
         {
             this.webRequestor = webRequestor;
             this.url = url;
@@ -33,7 +33,7 @@ namespace DataCollector.WebRequest.Get
             validate();
         }
 
-        public DocumentRequester(IWebRequestor webRequestor, string url, bool persistStatus200)
+        public DocumentRequestor(IWebRequestor webRequestor, string url, bool persistStatus200)
         {
             this.webRequestor = webRequestor;
             this.url = url;
@@ -41,7 +41,7 @@ namespace DataCollector.WebRequest.Get
             validate();
         }
 
-        public DocumentRequester(IWebRequestor webRequestor, string url, Cookie sessionCookie, bool persistStatus200)
+        public DocumentRequestor(IWebRequestor webRequestor, string url, Cookie sessionCookie, bool persistStatus200)
         {
             this.url = url;
             this.sessionCookie = sessionCookie ?? throw new ArgumentNullException(nameof(sessionCookie));

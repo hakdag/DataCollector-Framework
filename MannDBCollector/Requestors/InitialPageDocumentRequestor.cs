@@ -3,7 +3,7 @@ using MannDBCollector.Common.Contracts;
 
 namespace MannDBCollector.Requestors
 {
-    public class InitialPageDocumentRequestor : DocumentRequester, IInitialPageDocumentRequestor
+    public class InitialPageDocumentRequestor : DocumentRequestor, IInitialPageDocumentRequestor
     {
         private VehicleTypes? vehicleType;
 

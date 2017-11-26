@@ -18,7 +18,7 @@ namespace DataCollector.WebRequest.UnitTests
 
             //Act
             mockWebRequestor.Setup(wr => wr.GetResponseHtml("www.test.com", null, true)).Throws<PersistStatusCode200Exception>();
-            DocumentRequester documentRequester = new DocumentRequester(mockWebRequestor.Object, "www.test.com", true);
+            DocumentRequestor documentRequester = new DocumentRequestor(mockWebRequestor.Object, "www.test.com", true);
             HtmlDocument doc = documentRequester.GetHtml();
 
             //Assert

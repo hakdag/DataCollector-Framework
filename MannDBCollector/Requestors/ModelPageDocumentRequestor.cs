@@ -3,7 +3,7 @@ using MannDBCollector.Common.Contracts;
 
 namespace MannDBCollector.Requestors
 {
-    public class ModelPageDocumentRequestor : DocumentRequester, IModelPageDocumentRequestor
+    public class ModelPageDocumentRequestor : DocumentRequestor, IModelPageDocumentRequestor
     {
         public ModelPageDocumentRequestor(WebRequestor webRequestor, string url) : base(webRequestor, url) { }
     }
