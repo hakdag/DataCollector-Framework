@@ -47,6 +47,7 @@
     <Compile Include="IExecutionPlan.cs" />
     <Compile Include="IMiddleWare.cs" />
     <Compile Include="ITitleLinkPair.cs" />
+    <Compile Include="IWebRequestor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

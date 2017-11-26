@@ -16,7 +16,7 @@ namespace WebRequester.Tests
             VehicleTypes type = VehicleTypes.OtomobillerTicariAraclar;
             try
             {
-                DocumentRequester documentRequester = new DocumentRequester(url);
+                DocumentRequester documentRequester = new DocumentRequester(new WebRequestor(), url);
                 Assert.Fail("Request must fail with an empty url given.");
             }
             catch (InvalidURLException) { }
@@ -33,7 +33,7 @@ namespace WebRequester.Tests
             VehicleTypes type = VehicleTypes.OtomobillerTicariAraclar;
             try
             {
-                DocumentRequester documentRequester = new DocumentRequester(url);
+                DocumentRequester documentRequester = new DocumentRequester(new WebRequestor(), url);
             }
             catch (Exception exc)
             {
@@ -47,7 +47,7 @@ namespace WebRequester.Tests
             string url = "http://catalog.mann-filter.com/EU/tur/vehicle/MANN-FILTER%20Katalog%20Europa/Ara%C3%A7lar/Otomobiller%20%2B%20Ticari%20Ara%C3%A7lar";
             try
             {
-                DocumentRequester documentRequester = new DocumentRequester(url);
+                DocumentRequester documentRequester = new DocumentRequester(new WebRequestor(), url);
             }
             catch (Exception exc)
             {

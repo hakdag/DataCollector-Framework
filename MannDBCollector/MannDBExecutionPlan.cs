@@ -1,6 +1,7 @@
 ﻿using DataCollector.Common.Contracts;
 using DataCollector.IO;
 using DataCollector.Planning;
+using DataCollector.WebRequest.Get;
 using MannDBCollector.Common;
 using MannDBCollector.Common.Contracts;
 using MannDBCollector.Parsers;
@@ -77,7 +78,7 @@ namespace MannDBCollector
 
         private ModelCollectorSet[] getModels(ProducerCollectorSet producerSet, ITitleLinkPair producer)
         {
-            ModelDocumentRequestor modelDR = new ModelDocumentRequestor($"{baseUrl}{producer.Link}");
+            ModelDocumentRequestor modelDR = new ModelDocumentRequestor(new WebRequestor(), $"{baseUrl}{producer.Link}");
             ModelParser modelParser = new ModelParser(modelDR);
             ITitleLinkPair[] models = modelParser.Parse();
 
@@ -96,7 +97,7 @@ namespace MannDBCollector
 
         private ModelPageCollectorSet[] getModelPages(ModelCollectorSet modelSet, ITitleLinkPair model)
         {
-            ModelPageDocumentRequestor mpDR = new ModelPageDocumentRequestor($"{baseUrl}{model.Link}");
+            ModelPageDocumentRequestor mpDR = new ModelPageDocumentRequestor(new WebRequestor(), $"{baseUrl}{model.Link}");
             ModelPageParser mpParser = new ModelPageParser(mpDR);
             string[] modelPages = mpParser.Parse();
 
@@ -105,7 +106,7 @@ namespace MannDBCollector
             {
                 ModelPageCollectorSet modelPageSet = new ModelPageCollectorSet();
 
-                ModelDetailDocumentRequestor mdDR = new ModelDetailDocumentRequestor($"{baseUrl}{modelPage}");
+                ModelDetailDocumentRequestor mdDR = new ModelDetailDocumentRequestor(new WebRequestor(), $"{baseUrl}{modelPage}");
                 ModelDetailParser mdParser = new ModelDetailParser(mdDR);
                 ModelPageModel modelPageModel = mdParser.Parse();
                 modelPageSet.Data = mdDR;
@@ -307,7 +308,7 @@ namespace MannDBCollector
             List<string> filterDimensions = new List<string>();
             foreach (string filterUrl in filterUrls)
             {
-                FilterPageDocumentRequestor fpDR = new FilterPageDocumentRequestor($"{baseUrl}{filterUrl}");
+                FilterPageDocumentRequestor fpDR = new FilterPageDocumentRequestor(new WebRequestor(), $"{baseUrl}{filterUrl}");
                 FilterPageParser fpParser = new FilterPageParser(fpDR);
                 filterDimensions.Add(fpParser.Parse());
             }
@@ -348,7 +349,7 @@ namespace MannDBCollector
         private void createPlanForVehicleType(ITitleLinkPair vehicleType)
         {
             // web request - producers
-            VehicleTypeDocumentRequestor dr = new VehicleTypeDocumentRequestor(vehicleType.Link);
+            VehicleTypeDocumentRequestor dr = new VehicleTypeDocumentRequestor(new WebRequestor(), vehicleType.Link);
             VehicleTypeParser parser = new VehicleTypeParser(dr);
             ITitleLinkPair[] producers = parser.Parse();
             vehicleTypeProducers.Add(vehicleType.Title, producers);

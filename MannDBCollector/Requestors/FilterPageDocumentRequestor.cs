@@ -5,6 +5,6 @@ namespace MannDBCollector.Requestors
 {
     public class FilterPageDocumentRequestor : DocumentRequester, IFilterPageDocumentRequestor
     {
-        public FilterPageDocumentRequestor(string url) : base(url) { }
+        public FilterPageDocumentRequestor(WebRequestor webRequestor, string url) : base(webRequestor, url) { }
     }
 }

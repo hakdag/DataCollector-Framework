@@ -4,11 +4,11 @@
 		<id>foxsoftware.frameworks.datacollector</id>
 		<authors>Hakan Akdag</authors>
 		<owners>Hakan Akdag</owners>
-		<version>0.1.2</version>
+		<version>0.1.3</version>
 		<title>DataCollector Framework</title>
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
 		<description>Framework for parsing web pages.</description>
-		<releaseNotes>Added dependencies.</releaseNotes>
+		<releaseNotes>DocumentRequestor updated to support DI.</releaseNotes>
 		<copyright>Copyright 2017</copyright>
 		<tags>parse html web content</tags>
 		

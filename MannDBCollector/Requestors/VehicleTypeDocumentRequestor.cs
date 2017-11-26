@@ -5,6 +5,6 @@ namespace MannDBCollector.Requestors
 {
     public class VehicleTypeDocumentRequestor : DocumentRequester, IVehicleTypeDocumentRequestor
     {
-        public VehicleTypeDocumentRequestor(string url) : base(url) { }
+        public VehicleTypeDocumentRequestor(WebRequestor webRequestor, string url) : base(webRequestor, url) { }
     }
 }

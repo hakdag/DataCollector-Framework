@@ -1,4 +1,6 @@
-﻿using HtmlAgilityPack;
+﻿using DataCollector.Common.Contracts;
+using DataCollector.WebRequest.Exceptions;
+using HtmlAgilityPack;
 using System;
 using System.IO;
 using System.IO.Compression;
@@ -6,18 +8,16 @@ using System.Net;
 
 namespace DataCollector.WebRequest.Get
 {
-    public class WebRequestor
+    public class WebRequestor : IWebRequestor
     {
         public WebRequestor() { }
 
-        public HtmlDocument GetResponseHtml(string uri, string cacheKey = null, Cookie sessionCookie = null)
+        public HtmlDocument GetResponseHtml(string uri, Cookie sessionCookie = null, bool persistStatus200 = false)
         {
-            //Program.requestsWriter.Write("Requesting: " + uri);
-            return getResponseHtml(uri, sessionCookie);
+            return getResponseHtml(uri, sessionCookie, persistStatus200);
         }
 
-
-        private HtmlDocument getResponseHtml(string uri, Cookie sessionCookie = null)
+        private HtmlDocument getResponseHtml(string uri, Cookie sessionCookie, bool persistStatus200)
         {
             HttpWebResponse httpWebResponse = null;
             try
@@ -34,11 +34,11 @@ namespace DataCollector.WebRequest.Get
             }
             catch (Exception)
             {
-                //Program.exceptionsWriter.Write(uri + Environment.NewLine);
-                //Program.exceptionsWriter.Write(exception.Message);
-                //Console.WriteLine(exception.Message);
                 throw;
             }
+
+            if (persistStatus200 && httpWebResponse.StatusCode != HttpStatusCode.OK)
+                throw new PersistStatusCode200Exception();
 
             var contentType = httpWebResponse.ContentEncoding;
             string html;
@@ -86,7 +86,6 @@ namespace DataCollector.WebRequest.Get
             }
             catch (Exception exc)
             {
-                //Program.exceptionsWriter.Write(exc.Message);
                 return null;
             }
         }
