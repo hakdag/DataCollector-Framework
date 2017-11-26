@@ -4,16 +4,25 @@
 		<id>foxsoftware.frameworks.datacollector</id>
 		<authors>Hakan Akdag</authors>
 		<owners>Hakan Akdag</owners>
-		<version>0.1</version>
+		<version>0.1.2</version>
 		<title>DataCollector Framework</title>
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
 		<description>Framework for parsing web pages.</description>
-		<releaseNotes>First release</releaseNotes>
-		<copyright>Copyright 2016</copyright>
+		<releaseNotes>Added dependencies.</releaseNotes>
+		<copyright>Copyright 2017</copyright>
 		<tags>parse html web content</tags>
+		
+		<dependencies>
+			<dependency id="HtmlAgilityPack" version="1.6.5" />
+		</dependencies>
 	</metadata>
   
 	<files>
-		<file src="*.dll" target="lib\net461" />
+		<file src="..\Build\DataCollector.Common.Contracts.dll" target="lib\net461" />
+		<file src="..\Build\DataCollector.Common.dll" target="lib\net461" />
+		<file src="..\Build\DataCollector.IO.dll" target="lib\net461" />
+		<file src="..\Build\DataCollector.Parsing.dll" target="lib\net461" />
+		<file src="..\Build\DataCollector.Planning.dll" target="lib\net461" />
+		<file src="..\Build\DataCollector.WebRequest.dll" target="lib\net461" />
 	</files>
 </package>

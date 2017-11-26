@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2005
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataCollector", "DataCollector\DataCollector.csproj", "{52B45258-393F-49F8-9912-5EF72E5CF472}"
 EndProject
@@ -10,11 +10,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebRequester.Tests", "WebRequester.Tests\WebRequester.Tests.csproj", "{C56D83E5-8958-4E3E-920A-56C7FC22A9DC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataCollector.Common.Contracts", "DataCollector.Common.Contracts\DataCollector.Common.Contracts.csproj", "{6A9C8CEA-C6CA-4477-A6EE-885B9E6C2468}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Library", "Library", "{1B2E58E1-3819-4D32-B16B-06DDD5377D3E}"
-	ProjectSection(SolutionItems) = preProject
-		Library\HtmlAgilityPack.dll = Library\HtmlAgilityPack.dll
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MannDBCollector", "MannDBCollector\MannDBCollector.csproj", "{1A6429C4-9553-44C3-86DC-35419231BD4A}"
 EndProject
@@ -107,5 +102,8 @@ Global
 		{A515B1D1-3355-4003-989C-184B6EA21460} = {77AD7AE7-D52A-4166-ACEC-0826731A7F13}
 		{36652415-B3E9-448E-8E59-213D0F486DBC} = {77AD7AE7-D52A-4166-ACEC-0826731A7F13}
 		{B8D1DE3D-9BA1-4943-AE2A-EBCD5C6CCD7B} = {77AD7AE7-D52A-4166-ACEC-0826731A7F13}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FB24A6CA-3D3E-4091-8E80-6CC3D77D2EF6}
 	EndGlobalSection
 EndGlobal

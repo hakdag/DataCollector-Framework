@@ -3,3 +3,4 @@ $ cat .gitignore
 /Packages/*
 */bin/*
 */obj/*
+/.vs/DataCollector Framework/v15
